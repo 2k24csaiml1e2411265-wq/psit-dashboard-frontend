@@ -45,7 +45,7 @@ const DEPT_COLORS = {
 const styles = {
   page: {
     fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-    background: "#ffffff",
+    background: "light-grey",
     minHeight: "100vh",
     color: C.gray900,
     fontSize: 14,
@@ -394,10 +394,7 @@ export default function App() {
       <header style={styles.topbar}>
         <div style={styles.logo}>
           <div style={styles.logoIcon}>🌿</div>
-          <span>Campus Dashboard</span>
-          <span style={{ color: C.gray400, fontWeight: 400, fontSize: 13 }}>
-            — PSIT Kanpur
-          </span>
+          <span>Campus Dashboard-PSIT Kanpur</span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           {synced && (
