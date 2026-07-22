@@ -11,25 +11,27 @@ const API = process.env.REACT_APP_API_URL || "https://campus-dashboard-api.onren
    subtle grays for borders and backgrounds.
    No dark mode, no neon, no glows.
 ───────────────────────────────────────────────────────────── */
-const C = {
-  green:     "#16a34a",
-  greenLight:"#dcfce7",
-  greenMid:  "#86efac",
-  amber:     "#d97706",
-  amberLight:"#fef3c7",
-  red:       "#dc2626",
-  redLight:  "#fee2e2",
-  blue:      "#2563eb",
-  blueLight: "#dbeafe",
-  gray50:    "#f9fafb",
-  gray100:   "#f3f4f6",
-  gray200:   "#e5e7eb",
-  gray400:   "#9ca3af",
-  gray500:   "#6b7280",
-  gray700:   "#374151",
-  gray900:   "#111827",
-};
+const theme = {
+  primary: "#4F46E5",
+  secondary: "#7C3AED",
+  success: "#22C55E",
+  warning: "#F59E0B",
+  danger: "#EF4444",
 
+  background: "#F8FAFC",
+  surface: "#FFFFFF",
+
+  text: "#0F172A",
+  textLight: "#64748B",
+
+  border: "#E2E8F0",
+
+  shadow:
+    "0 10px 30px rgba(15,23,42,.08)",
+
+  gradient:
+    "linear-gradient(135deg,#4F46E5,#7C3AED)"
+};
 const scoreColor = (s) =>
   s >= 70 ? C.green : s >= 50 ? C.amber : C.red;
 
@@ -45,23 +47,39 @@ const DEPT_COLORS = {
 const styles = {
   page: {
     fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-    background: "light-grey",
+    background: "linear-gradient(180deg,#F8FAFC 0%,#EEF2FF 100%)",
+overflowX:"hidden",
+paddingBottom:60
     minHeight: "100vh",
     color: C.gray900,
     fontSize: 14,
   },
-  topbar: {
-    borderBottom: `1px solid ${C.gray200}`,
-    padding: "0 24px",
-    height: 56,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    background: "#fff",
-    position: "sticky",
-    top: 0,
-    zIndex: 10,
-  },
+topbar:{
+    position:"sticky",
+    top:0,
+    zIndex:100,
+
+    backdropFilter:"blur(16px)",
+
+    background:
+    "rgba(255,255,255,.75)",
+
+    borderBottom:
+    "1px solid rgba(226,232,240,.6)",
+
+    boxShadow:
+    "0 4px 20px rgba(0,0,0,.04)",
+
+    height:72,
+
+    padding:"0 40px",
+
+    display:"flex",
+
+    justifyContent:"space-between",
+
+    alignItems:"center"
+},
   logo: {
     display: "flex",
     alignItems: "center",
@@ -123,7 +141,25 @@ const styles = {
     alignItems: "flex-start",
     gap: 10,
     background: C.redLight,
-    border: `1px solid #fca5a5`,
+    card:{
+    background:"rgba(255,255,255,.95)",
+
+    borderRadius:22,
+
+    padding:24,
+
+    boxShadow:
+    "0 20px 50px rgba(15,23,42,.08)",
+
+    border:"1px solid rgba(255,255,255,.6)",
+
+    backdropFilter:"blur(14px)",
+
+    transition:
+    "all .35s ease",
+
+    cursor:"default"
+},
     borderRadius: 8,
     padding: "12px 16px",
     marginBottom: 20,
@@ -326,7 +362,9 @@ function Loading() {
       display: "flex", alignItems: "center", justifyContent: "center",
       flexDirection: "column", gap: 12,
     }}>
-      <div style={{ width: 50, height: 50, borderRadius: 8, background: C.green }} />
+      <div style={{ width: 50, height: 50, borderRadius: 8, background: C.green }} 
+      <div style={styles.logo}>
+          <div style={styles.logoIcon}>🌿</div>/>
       <p style={{ color: C.gray500, margin: 0, fontSize: 30 }}>
         🌿Loading campus data...
       </p>
