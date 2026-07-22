@@ -328,7 +328,7 @@ function Loading() {
     }}>
       <div style={{ width: 32, height: 32, borderRadius: 8, background: C.green }} />
       <p style={{ color: C.gray500, margin: 0, fontSize: 14 }}>
-        Loading campus data…
+        Loading campus data...
       </p>
     </div>
   );
