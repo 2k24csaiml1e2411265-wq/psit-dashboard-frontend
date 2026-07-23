@@ -326,8 +326,9 @@ function Loading() {
       display: "flex", alignItems: "center", justifyContent: "center",
       flexDirection: "column", gap: 12,
     }}>
-      <div style={{ width: 50, height: 50, borderRadius: 8, background: C.green }} 🌿/>
-      <p style={{ color: C.gray500, margin: 0, fontSize: 25 }}>
+ <div style={styles.logo}>
+          <div style={styles.logoIcon}>🌿</div>      
+   <p style={{ color: C.gray500, margin: 0, fontSize: 25 }}>
         Loading campus data…
       </p>
     </div>
