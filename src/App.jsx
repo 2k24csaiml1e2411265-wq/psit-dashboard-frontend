@@ -289,10 +289,11 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     fontSize: 12,
-    color: C.gray400,
+    color: C.black,
     flexWrap: "wrap",
     gap: 8,
     marginTop: 24,
+    fontweight: 500,
   },
 };
 
