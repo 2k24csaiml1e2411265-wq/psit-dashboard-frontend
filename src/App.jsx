@@ -45,7 +45,7 @@ const DEPT_COLORS = {
 const styles = {
   page: {
     fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-    background: "#F0FFFF",
+    background: "#ffffff",
     minHeight: "100vh",
     color: C.gray900,
     fontSize: 14,
@@ -289,11 +289,10 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     fontSize: 12,
-    color: C.black,
+    color: C.gray400,
     flexWrap: "wrap",
     gap: 8,
     marginTop: 24,
-    fontweight: 500,
   },
 };
 
@@ -322,38 +321,14 @@ function ChartTip({ active, payload, label }) {
 /* ─── Loading ────────────────────────────────────────────── */
 function Loading() {
   return (
-    <div
-      style={{
-        ...styles.page,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-        gap: 16,
-      }}
-    >
-      {/* Simple Loader */}
-      <div
-        style={{
-          width: 48,
-          height: 48,
-          border: "4px solid #e5e7eb",
-          borderTop: "4px solid #16a34a",
-          borderRadius: "50%",
-          animation: "spin 1s linear infinite",
-        }}
-      />
-<div style={{ fontSize: 40 }}>🌿</div>
-      <p
-        style={{
-          color: C.gray500,
-          margin: 0,
-          fontSize: 20,
-          fontWeight: 500,
-          letterSpacing: "0.3px",
-        }}
-      >
-        Loading campus data....
+    <div style={{
+      ...styles.page,
+      display: "flex", alignItems: "center", justifyContent: "center",
+      flexDirection: "column", gap: 12,
+    }}>
+      <div style={{ width: 32, height: 32, borderRadius: 8, background: C.green }} />
+      <p style={{ color: C.gray500, margin: 0, fontSize: 14 }}>
+        Loading campus data…
       </p>
     </div>
   );
