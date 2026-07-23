@@ -327,7 +327,7 @@ function Loading() {
       flexDirection: "column", gap: 12,
     }}>
       <div />
-      <p style={{ color: C.gray500, margin: 0, fontSize: 14 }}>
+      <p style={{ color: C.gray500, margin: 0, fontSize: 30 }}>
        🌿 Loading campus data…
       </p>
     </div>
