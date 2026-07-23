@@ -45,7 +45,7 @@ const DEPT_COLORS = {
 const styles = {
   page: {
     fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-    background: "light-grey",
+    background: "#B0C4DE",
     minHeight: "100vh",
     color: C.gray900,
     fontSize: 14,
