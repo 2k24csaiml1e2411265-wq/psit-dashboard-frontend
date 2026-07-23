@@ -321,14 +321,38 @@ function ChartTip({ active, payload, label }) {
 /* ─── Loading ────────────────────────────────────────────── */
 function Loading() {
   return (
-    <div style={{
-      ...styles.page,
-      display: "flex", alignItems: "center", justifyContent: "center",
-      flexDirection: "column", gap: 12,
-    }}>
-      <div style={{ width: 50, height: 50, borderRadius: 12, background: C.green }} />
-      <p style={{ color: C.gray500, margin: 0, fontSize: 30 }}>
-        🌿Loading campus data…
+    <div
+      style={{
+        ...styles.page,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+        gap: 16,
+      }}
+    >
+      {/* Simple Loader */}
+      <div
+        style={{
+          width: 48,
+          height: 48,
+          border: "4px solid #e5e7eb",
+          borderTop: "4px solid #16a34a",
+          borderRadius: "50%",
+          animation: "spin 1s linear infinite",
+        }}
+      />
+<div style={{ fontSize: 40 }}>🌿</div>
+      <p
+        style={{
+          color: C.gray500,
+          margin: 0,
+          fontSize: 20,
+          fontWeight: 500,
+          letterSpacing: "0.3px",
+        }}
+      >
+        Loading campus data....
       </p>
     </div>
   );
