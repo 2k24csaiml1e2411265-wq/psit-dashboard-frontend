@@ -6,11 +6,6 @@ import {
 
 const API = process.env.REACT_APP_API_URL || "https://campus-dashboard-api.onrender.com";
 
-/* ─── Design tokens ─────────────────────────────────────────
-   Palette: white base, slate text, one green accent (#16a34a),
-   subtle grays for borders and backgrounds.
-   No dark mode, no neon, no glows.
-───────────────────────────────────────────────────────────── */
 const C = {
   green:     "#16a34a",
   greenLight:"#dcfce7",
@@ -30,18 +25,14 @@ const C = {
   gray900:   "#111827",
 };
 
-const scoreColor = (s) =>
-  s >= 70 ? C.green : s >= 50 ? C.amber : C.red;
-
-const scoreBg = (s) =>
-  s >= 70 ? C.greenLight : s >= 50 ? C.amberLight : C.redLight;
+const scoreColor = (s) => s >= 70 ? C.green : s >= 50 ? C.amber : C.red;
+const scoreBg    = (s) => s >= 70 ? C.greenLight : s >= 50 ? C.amberLight : C.redLight;
 
 const DEPT_COLORS = {
   CSE:"#2563eb", ECE:"#7c3aed", ME:"#d97706",
-  CE: "#0891b2", MBA:"#16a34a", MCA:"#db2777", EEE:"#ea580c",
+  CE:"#0891b2",  MBA:"#16a34a", MCA:"#db2777", EEE:"#ea580c",
 };
 
-/* ─── Tiny style helpers ─────────────────────────────────── */
 const styles = {
   page: {
     fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
@@ -71,8 +62,7 @@ const styles = {
     color: C.gray900,
   },
   logoIcon: {
-    width: 28,
-    height: 28,
+    width: 28, height: 28,
     background: C.green,
     borderRadius: 6,
     display: "flex",
@@ -94,171 +84,81 @@ const styles = {
     fontWeight: 500,
   }),
   dot: (live) => ({
-    width: 6,
-    height: 6,
+    width: 6, height: 6,
     borderRadius: "50%",
     background: live ? C.green : C.gray400,
   }),
-  main: {
-    maxWidth: 1100,
-    margin: "0 auto",
-    padding: "28px 24px",
-  },
-  pageHeader: {
-    marginBottom: 24,
-  },
-  pageTitle: {
-    fontSize: 20,
-    fontWeight: 600,
-    color: C.gray900,
-    margin: "0 0 4px",
-  },
-  pageSubtitle: {
-    fontSize: 13,
-    color: C.gray500,
-    margin: 0,
-  },
+  main: { maxWidth: 1100, margin: "0 auto", padding: "28px 24px" },
+  pageHeader: { marginBottom: 24 },
+  pageTitle: { fontSize: 20, fontWeight: 600, color: C.gray900, margin: "0 0 4px" },
+  pageSubtitle: { fontSize: 13, color: C.gray500, margin: 0 },
   alertBanner: {
-    display: "flex",
-    alignItems: "flex-start",
-    gap: 10,
-    background: C.redLight,
-    border: `1px solid #fca5a5`,
-    borderRadius: 8,
-    padding: "12px 16px",
-    marginBottom: 20,
-    fontSize: 13,
-    color: "#7f1d1d",
+    display: "flex", alignItems: "flex-start", gap: 10,
+    background: C.redLight, border: `1px solid #fca5a5`,
+    borderRadius: 8, padding: "12px 16px", marginBottom: 20,
+    fontSize: 13, color: "#7f1d1d",
   },
   grid4: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-    gap: 12,
-    marginBottom: 20,
+    gap: 12, marginBottom: 20,
   },
   statCard: {
     border: `1px solid ${C.gray200}`,
-    borderRadius: 10,
-    padding: "16px 18px",
-    background: "#fff",
+    borderRadius: 10, padding: "16px 18px", background: "#fff",
   },
   statLabel: {
-    fontSize: 12,
-    color: C.gray500,
-    fontWeight: 500,
-    textTransform: "uppercase",
-    letterSpacing: "0.04em",
-    margin: "0 0 8px",
+    fontSize: 12, color: C.gray500, fontWeight: 500,
+    textTransform: "uppercase", letterSpacing: "0.04em", margin: "0 0 8px",
   },
   statValue: (color) => ({
-    fontSize: 26,
-    fontWeight: 700,
-    color: color || C.gray900,
-    margin: "0 0 2px",
-    lineHeight: 1.1,
+    fontSize: 26, fontWeight: 700,
+    color: color || C.gray900, margin: "0 0 2px", lineHeight: 1.1,
   }),
-  statSub: {
-    fontSize: 12,
-    color: C.gray400,
-    margin: 0,
-  },
+  statSub: { fontSize: 12, color: C.gray400, margin: 0 },
   grid2: {
     display: "grid",
     gridTemplateColumns: "340px 1fr",
-    gap: 16,
-    marginBottom: 16,
+    gap: 16, marginBottom: 16,
   },
   card: {
     border: `1px solid ${C.gray200}`,
-    borderRadius: 10,
-    background: "#fff",
-    overflow: "hidden",
+    borderRadius: 10, background: "#fff", overflow: "hidden",
   },
   cardHeader: {
     padding: "14px 18px",
     borderBottom: `1px solid ${C.gray100}`,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
+    display: "flex", alignItems: "center", justifyContent: "space-between",
   },
-  cardTitle: {
-    fontSize: 13,
-    fontWeight: 600,
-    color: C.gray700,
-    margin: 0,
-  },
-  cardBody: {
-    padding: "16px 18px",
-  },
+  cardTitle: { fontSize: 13, fontWeight: 600, color: C.gray700, margin: 0 },
   lbRow: (i) => ({
-    display: "flex",
-    alignItems: "center",
-    gap: 10,
-    padding: "9px 0",
+    display: "flex", alignItems: "center", gap: 10, padding: "9px 0",
     borderBottom: i < 6 ? `1px solid ${C.gray100}` : "none",
   }),
   lbRank: (i) => ({
-    width: 22,
-    fontSize: 12,
-    fontWeight: 700,
+    width: 22, fontSize: 12, fontWeight: 700, flexShrink: 0, textAlign: "center",
     color: i === 0 ? "#92400e" : i === 1 ? C.gray500 : C.gray400,
-    flexShrink: 0,
-    textAlign: "center",
   }),
-  lbDept: {
-    width: 36,
-    fontSize: 13,
-    fontWeight: 600,
-    color: C.gray700,
-    flexShrink: 0,
-  },
-  lbBarTrack: {
-    flex: 1,
-    height: 6,
-    background: C.gray100,
-    borderRadius: 3,
-    overflow: "hidden",
-  },
-  lbBarFill: (score) => ({
-    height: "100%",
-    width: `${score}%`,
-    background: scoreColor(score),
-    borderRadius: 3,
-    transition: "width 0.8s ease",
+  lbDept: { width: 36, fontSize: 13, fontWeight: 600, color: C.gray700, flexShrink: 0 },
+  lbBarTrack: { flex: 1, height: 6, background: C.gray100, borderRadius: 3, overflow: "hidden" },
+  lbBarFill: (s) => ({
+    height: "100%", width: `${s}%`,
+    background: scoreColor(s), borderRadius: 3, transition: "width 0.8s ease",
   }),
-  lbScore: (score) => ({
-    fontSize: 13,
-    fontWeight: 700,
-    color: scoreColor(score),
-    width: 26,
-    textAlign: "right",
-    flexShrink: 0,
+  lbScore: (s) => ({
+    fontSize: 13, fontWeight: 700, color: scoreColor(s),
+    width: 26, textAlign: "right", flexShrink: 0,
   }),
-  lbBadge: (score) => ({
-    fontSize: 10,
-    fontWeight: 600,
-    color: scoreColor(score),
-    background: scoreBg(score),
-    borderRadius: 4,
-    padding: "1px 5px",
-    flexShrink: 0,
-    minWidth: 28,
-    textAlign: "center",
+  lbBadge: (s) => ({
+    fontSize: 10, fontWeight: 600, color: scoreColor(s), background: scoreBg(s),
+    borderRadius: 4, padding: "1px 5px", flexShrink: 0, minWidth: 28, textAlign: "center",
   }),
-  deptBtns: {
-    display: "flex",
-    gap: 6,
-    flexWrap: "wrap",
-  },
-  deptBtn: (active, dept) => ({
-    padding: "4px 10px",
-    borderRadius: 6,
-    border: `1px solid ${active ? DEPT_COLORS[dept] : C.gray200}`,
-    background: active ? DEPT_COLORS[dept] : "#fff",
+  deptBtns: { display: "flex", gap: 6, flexWrap: "wrap" },
+  deptBtn: (active, d) => ({
+    padding: "4px 10px", borderRadius: 6, cursor: "pointer", fontSize: 12, fontWeight: 500,
+    border: `1px solid ${active ? DEPT_COLORS[d] : C.gray200}`,
+    background: active ? DEPT_COLORS[d] : "#fff",
     color: active ? "#fff" : C.gray500,
-    fontSize: 12,
-    fontWeight: 500,
-    cursor: "pointer",
     transition: "all 0.15s",
   }),
   anomalyGrid: {
@@ -267,45 +167,27 @@ const styles = {
     gap: 10,
   },
   anomalyCard: {
-    border: `1px solid #fca5a5`,
-    borderRadius: 8,
-    padding: "12px 14px",
-    background: C.redLight,
+    border: `1px solid #fca5a5`, borderRadius: 8,
+    padding: "12px 14px", background: C.redLight,
   },
   tag: (color, bg) => ({
-    display: "inline-block",
-    fontSize: 10,
-    fontWeight: 700,
-    color,
-    background: bg,
-    borderRadius: 4,
-    padding: "2px 7px",
-    textTransform: "uppercase",
-    letterSpacing: "0.05em",
+    display: "inline-block", fontSize: 10, fontWeight: 700,
+    color, background: bg, borderRadius: 4, padding: "2px 7px",
+    textTransform: "uppercase", letterSpacing: "0.05em",
   }),
   footer: {
-    borderTop: `1px solid ${C.gray100}`,
-    padding: "16px 24px",
-    display: "flex",
-    justifyContent: "space-between",
-    fontSize: 12,
-    color: C.gray400,
-    flexWrap: "wrap",
-    gap: 8,
-    marginTop: 24,
+    borderTop: `1px solid ${C.gray100}`, padding: "16px 24px",
+    display: "flex", justifyContent: "space-between",
+    fontSize: 12, color: C.gray400, flexWrap: "wrap", gap: 8, marginTop: 24,
   },
 };
 
-/* ─── Custom chart tooltip ───────────────────────────────── */
 function ChartTip({ active, payload, label }) {
   if (!active || !payload?.length) return null;
   return (
     <div style={{
-      background: "#fff",
-      border: `1px solid ${C.gray200}`,
-      borderRadius: 8,
-      padding: "8px 12px",
-      fontSize: 12,
+      background: "#fff", border: `1px solid ${C.gray200}`,
+      borderRadius: 8, padding: "8px 12px", fontSize: 12,
       boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
     }}>
       <p style={{ margin: "0 0 4px", color: C.gray500 }}>{label}</p>
@@ -318,32 +200,102 @@ function ChartTip({ active, payload, label }) {
   );
 }
 
-/* ─── Loading ────────────────────────────────────────────── */
-function Loading() {
+// ── Loading screen with countdown + retry ─────────────────
+function Loading({ seconds, onRetry }) {
   return (
     <div style={{
       ...styles.page,
       display: "flex", alignItems: "center", justifyContent: "center",
-      flexDirection: "column", gap: 12,
+      flexDirection: "column", gap: 0,
     }}>
-      <div />
-      <p style={{ color: C.gray500, margin: 0, fontSize: 30 }}>
-       🌿 Loading campus data…
+      {/* animated spinner */}
+      <div style={{
+        width: 36, height: 36, borderRadius: "50%",
+        border: `3px solid ${C.gray100}`,
+        borderTop: `3px solid ${C.green}`,
+        animation: "spin 0.9s linear infinite",
+        marginBottom: 18,
+      }} />
+      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+
+      <p style={{ color: C.gray700, margin: "0 0 6px", fontWeight: 600, fontSize: 15 }}>
+        Connecting to campus sensors
+      </p>
+      <p style={{ color: C.gray400, margin: "0 0 20px", fontSize: 13, textAlign: "center", maxWidth: 320 }}>
+        {seconds > 0
+          ? <>The server is waking up. This takes up to 60 seconds on first load.<br />
+              <span style={{ color: C.green, fontWeight: 600 }}>Retrying in {seconds}s…</span></>
+          : "Retrying now…"}
+      </p>
+
+      <button
+        onClick={onRetry}
+        style={{
+          padding: "8px 20px", borderRadius: 7, border: `1px solid ${C.gray200}`,
+          background: "#fff", color: C.gray700, fontSize: 13, fontWeight: 500,
+          cursor: "pointer",
+        }}
+      >
+        Retry now
+      </button>
+
+      <p style={{ color: C.gray400, fontSize: 11, marginTop: 28, textAlign: "center" }}>
+        PSIT Campus Dashboard · Powered by FastAPI + Supabase
       </p>
     </div>
   );
 }
 
-/* ─── Main App ───────────────────────────────────────────── */
+// ── Error screen ──────────────────────────────────────────
+function ErrorScreen({ onRetry }) {
+  return (
+    <div style={{
+      ...styles.page,
+      display: "flex", alignItems: "center", justifyContent: "center",
+      flexDirection: "column", gap: 0,
+    }}>
+      <div style={{
+        width: 44, height: 44, borderRadius: "50%",
+        background: C.redLight, display: "flex",
+        alignItems: "center", justifyContent: "center",
+        fontSize: 22, marginBottom: 16,
+      }}>⚠️</div>
+      <p style={{ color: C.gray700, margin: "0 0 6px", fontWeight: 600, fontSize: 15 }}>
+        Could not connect to server
+      </p>
+      <p style={{ color: C.gray400, margin: "0 0 20px", fontSize: 13, textAlign: "center", maxWidth: 300 }}>
+        The API server may be restarting. Please wait a moment and try again.
+      </p>
+      <button
+        onClick={onRetry}
+        style={{
+          padding: "8px 20px", borderRadius: 7, cursor: "pointer",
+          background: C.green, border: "none",
+          color: "#fff", fontSize: 13, fontWeight: 600,
+        }}
+      >
+        Try again
+      </button>
+    </div>
+  );
+}
+
+// ── Main App ──────────────────────────────────────────────
 export default function App() {
-  const [scores,  setScores]  = useState([]);
-  const [energy,  setEnergy]  = useState([]);
-  const [alerts,  setAlerts]  = useState([]);
-  const [summary, setSummary] = useState({});
-  const [trend,   setTrend]   = useState([]);
-  const [dept,    setDept]    = useState("CSE");
-  const [synced,  setSynced]  = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [scores,   setScores]   = useState([]);
+  const [energy,   setEnergy]   = useState([]);
+  const [alerts,   setAlerts]   = useState([]);
+  const [summary,  setSummary]  = useState({});
+  const [trend,    setTrend]    = useState([]);
+  const [dept,     setDept]     = useState("CSE");
+  const [synced,   setSynced]   = useState(null);
+
+  // "loading" = first fetch not done yet
+  // "error"   = all retries failed
+  // "ready"   = data loaded
+  const [status,   setStatus]   = useState("loading");
+  const [countdown,setCountdown]= useState(30);
+  const [attempt,  setAttempt]  = useState(0);
 
   const fetchAll = useCallback(async () => {
     try {
@@ -355,34 +307,68 @@ export default function App() {
       ]);
       setScores(sc); setEnergy(en); setAlerts(al); setSummary(su);
       setSynced(new Date());
-      setLoading(false);
-    } catch (e) { console.error(e); }
-  }, []);
+      setStatus("ready");
+    } catch (e) {
+      console.error("Fetch failed:", e);
+      // only move to error screen after 3 failed auto-retries
+      if (attempt >= 3) setStatus("error");
+    }
+  }, [attempt]);
 
   const fetchTrend = useCallback(async (d) => {
     try {
       const data = await fetch(`${API}/energy/trend/${d}`).then(r => r.json());
       setTrend(data.map(r => ({
-        time:  new Date(r.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+        time: new Date(r.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
         "Grid kWh":  r.kwh,
         "Solar kWh": r.solar_kwh,
       })));
     } catch (e) { console.error(e); }
   }, []);
 
+  // First fetch on mount
+  useEffect(() => { fetchAll(); }, []);  // eslint-disable-line
+
+  // Auto-retry every 30 seconds while loading
   useEffect(() => {
-    fetchAll();
+    if (status !== "loading") return;
+    const timer = setInterval(() => {
+      setCountdown(c => {
+        if (c <= 1) {
+          setAttempt(a => a + 1);
+          fetchAll();
+          return 30;
+        }
+        return c - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [status, fetchAll]);
+
+  // After loaded: refresh data every 60 seconds
+  useEffect(() => {
+    if (status !== "ready") return;
     const iv = setInterval(fetchAll, 60000);
     return () => clearInterval(iv);
-  }, [fetchAll]);
+  }, [status, fetchAll]);
 
+  // Trend chart
   useEffect(() => {
+    if (status !== "ready") return;
     fetchTrend(dept);
     const iv = setInterval(() => fetchTrend(dept), 60000);
     return () => clearInterval(iv);
-  }, [dept, fetchTrend]);
+  }, [dept, status, fetchTrend]);
 
-  if (loading) return <Loading />;
+  const handleRetry = () => {
+    setStatus("loading");
+    setAttempt(0);
+    setCountdown(30);
+    fetchAll();
+  };
+
+  if (status === "loading") return <Loading seconds={countdown} onRetry={handleRetry} />;
+  if (status === "error")   return <ErrorScreen onRetry={handleRetry} />;
 
   const waterK = summary.water_litres
     ? (summary.water_litres / 1000).toFixed(1) : "--";
@@ -390,7 +376,7 @@ export default function App() {
   return (
     <div style={styles.page}>
 
-      {/* ── TOP BAR ─────────────────────────────────────── */}
+      {/* TOP BAR */}
       <header style={styles.topbar}>
         <div style={styles.logo}>
           <div style={styles.logoIcon}>🌿</div>
@@ -414,7 +400,7 @@ export default function App() {
 
       <main style={styles.main}>
 
-        {/* ── PAGE HEADER ──────────────────────────────── */}
+        {/* PAGE HEADER */}
         <div style={styles.pageHeader}>
           <h1 style={styles.pageTitle}>Sustainability Overview</h1>
           <p style={styles.pageSubtitle}>
@@ -423,7 +409,7 @@ export default function App() {
           </p>
         </div>
 
-        {/* ── ALERT BANNER ─────────────────────────────── */}
+        {/* ALERT BANNER */}
         {alerts.length > 0 && (
           <div style={styles.alertBanner}>
             <span style={{ fontSize: 16, flexShrink: 0 }}>⚠️</span>
@@ -438,13 +424,13 @@ export default function App() {
           </div>
         )}
 
-        {/* ── STAT CARDS ───────────────────────────────── */}
+        {/* STAT CARDS */}
         <div style={styles.grid4}>
           {[
-            { label:"Solar share",         value:`${summary.solar_pct ?? "--"}%`,       sub:"of total campus consumption",   color: C.green },
-            { label:"Energy used (7 days)", value:`${summary.total_kwh ?? "--"} kWh`,   sub:"across all 7 departments",      color: C.gray900 },
-            { label:"CO₂ avoided",          value:`${summary.co2_saved_kg ?? "--"} kg`,  sub:"via solar generation",          color: C.blue },
-            { label:"Water used (7 days)",  value:`${waterK}K litres`,                   sub:"RO plant total",                color: C.gray900 },
+            { label: "Solar share",          value: `${summary.solar_pct ?? "--"}%`,      sub: "of total campus consumption", color: C.green },
+            { label: "Energy used (7 days)", value: `${summary.total_kwh ?? "--"} kWh`,   sub: "across all 7 departments",    color: C.gray900 },
+            { label: "CO₂ avoided",           value: `${summary.co2_saved_kg ?? "--"} kg`, sub: "via solar generation",        color: C.blue },
+            { label: "Water used (7 days)",  value: `${waterK}K litres`,                   sub: "RO plant total",              color: C.gray900 },
           ].map(s => (
             <div key={s.label} style={styles.statCard}>
               <p style={styles.statLabel}>{s.label}</p>
@@ -454,16 +440,12 @@ export default function App() {
           ))}
         </div>
 
-        {/* ── LEADERBOARD + ENERGY BAR ─────────────────── */}
+        {/* LEADERBOARD + BAR CHART */}
         <div style={styles.grid2}>
-
-          {/* Leaderboard */}
           <div style={styles.card}>
             <div style={styles.cardHeader}>
               <p style={styles.cardTitle}>Department Green Score</p>
-              <span style={styles.tag(C.gray500, C.gray100)}>
-                This week
-              </span>
+              <span style={styles.tag(C.gray500, C.gray100)}>This week</span>
             </div>
             <div style={{ padding: "4px 18px 10px" }}>
               {scores.map((s, i) => (
@@ -482,13 +464,11 @@ export default function App() {
                 </div>
               ))}
               <p style={{ fontSize: 11, color: C.gray400, margin: "10px 0 0" }}>
-                Score based on energy efficiency vs department baseline.
-                Updates every 60 seconds.
+                Score based on energy efficiency vs department baseline. Updates every 60 seconds.
               </p>
             </div>
           </div>
 
-          {/* Energy bar chart */}
           <div style={styles.card}>
             <div style={styles.cardHeader}>
               <p style={styles.cardTitle}>Current energy reading by department</p>
@@ -498,34 +478,18 @@ export default function App() {
               <ResponsiveContainer width="100%" height={220}>
                 <BarChart data={energy} margin={{ top: 4, right: 12, bottom: 0, left: -10 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke={C.gray100} vertical={false} />
-                  <XAxis
-                    dataKey="dept"
-                    tick={{ fill: C.gray500, fontSize: 12 }}
-                    axisLine={{ stroke: C.gray200 }}
-                    tickLine={false}
-                  />
-                  <YAxis
-                    tick={{ fill: C.gray400, fontSize: 11 }}
-                    axisLine={false}
-                    tickLine={false}
-                  />
-                  <Tooltip
-                    content={<ChartTip />}
-                    cursor={{ fill: C.gray50 }}
-                  />
-                  <Bar
-                    dataKey="kwh"
-                    name="Energy (kWh)"
-                    radius={[4, 4, 0, 0]}
-                    fill={C.blue}
-                  />
+                  <XAxis dataKey="dept" tick={{ fill: C.gray500, fontSize: 12 }}
+                    axisLine={{ stroke: C.gray200 }} tickLine={false} />
+                  <YAxis tick={{ fill: C.gray400, fontSize: 11 }} axisLine={false} tickLine={false} />
+                  <Tooltip content={<ChartTip />} cursor={{ fill: C.gray50 }} />
+                  <Bar dataKey="kwh" name="Energy (kWh)" radius={[4, 4, 0, 0]} fill={C.blue} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
           </div>
         </div>
 
-        {/* ── TREND CHART ──────────────────────────────── */}
+        {/* TREND CHART */}
         <div style={{ ...styles.card, marginBottom: 16 }}>
           <div style={styles.cardHeader}>
             <p style={styles.cardTitle}>
@@ -534,11 +498,7 @@ export default function App() {
             </p>
             <div style={styles.deptBtns}>
               {["CSE","ECE","ME","CE","MBA","MCA","EEE"].map(d => (
-                <button
-                  key={d}
-                  onClick={() => setDept(d)}
-                  style={styles.deptBtn(dept === d, d)}
-                >
+                <button key={d} onClick={() => setDept(d)} style={styles.deptBtn(dept === d, d)}>
                   {d}
                 </button>
               ))}
@@ -548,36 +508,15 @@ export default function App() {
             <ResponsiveContainer width="100%" height={160}>
               <LineChart data={trend} margin={{ top: 4, right: 16, bottom: 0, left: -10 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke={C.gray100} />
-                <XAxis
-                  dataKey="time"
-                  tick={{ fill: C.gray400, fontSize: 11 }}
-                  axisLine={{ stroke: C.gray200 }}
-                  tickLine={false}
-                  interval="preserveStartEnd"
-                />
-                <YAxis
-                  tick={{ fill: C.gray400, fontSize: 11 }}
-                  axisLine={false}
-                  tickLine={false}
-                />
+                <XAxis dataKey="time" tick={{ fill: C.gray400, fontSize: 11 }}
+                  axisLine={{ stroke: C.gray200 }} tickLine={false} interval="preserveStartEnd" />
+                <YAxis tick={{ fill: C.gray400, fontSize: 11 }} axisLine={false} tickLine={false} />
                 <Tooltip content={<ChartTip />} cursor={{ stroke: C.gray200 }} />
-                <Line
-                  type="monotone"
-                  dataKey="Grid kWh"
-                  stroke={DEPT_COLORS[dept]}
-                  strokeWidth={2}
-                  dot={false}
-                  activeDot={{ r: 4, fill: DEPT_COLORS[dept] }}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="Solar kWh"
-                  stroke={C.green}
-                  strokeWidth={1.5}
-                  dot={false}
-                  strokeDasharray="4 3"
-                  activeDot={{ r: 3, fill: C.green }}
-                />
+                <Line type="monotone" dataKey="Grid kWh" stroke={DEPT_COLORS[dept]}
+                  strokeWidth={2} dot={false} activeDot={{ r: 4, fill: DEPT_COLORS[dept] }} />
+                <Line type="monotone" dataKey="Solar kWh" stroke={C.green}
+                  strokeWidth={1.5} dot={false} strokeDasharray="4 3"
+                  activeDot={{ r: 3, fill: C.green }} />
               </LineChart>
             </ResponsiveContainer>
             <p style={{ fontSize: 11, color: C.gray400, margin: "8px 0 0 16px" }}>
@@ -588,7 +527,7 @@ export default function App() {
           </div>
         </div>
 
-        {/* ── ANOMALY TABLE ─────────────────────────────── */}
+        {/* ANOMALY CARDS */}
         {alerts.length > 0 && (
           <div style={{ ...styles.card, marginBottom: 16 }}>
             <div style={styles.cardHeader}>
@@ -601,13 +540,8 @@ export default function App() {
               <div style={styles.anomalyGrid}>
                 {alerts.map(a => (
                   <div key={a.dept} style={styles.anomalyCard}>
-                    <div style={{
-                      display: "flex", justifyContent: "space-between",
-                      alignItems: "center", marginBottom: 6,
-                    }}>
-                      <span style={{ fontWeight: 700, color: C.red, fontSize: 15 }}>
-                        {a.dept}
-                      </span>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                      <span style={{ fontWeight: 700, color: C.red, fontSize: 15 }}>{a.dept}</span>
                       <span style={styles.tag(C.red, "#fecaca")}>Spike</span>
                     </div>
                     <p style={{ margin: "0 0 2px", fontWeight: 700, fontSize: 20, color: "#7f1d1d" }}>
@@ -623,7 +557,6 @@ export default function App() {
           </div>
         )}
 
-        {/* ── FOOTER ───────────────────────────────────── */}
         <footer style={styles.footer}>
           <span>PSIT — Pranveer Singh Institute of Technology, Kanpur</span>
           <span>Built by Yash Kushwaha · SustainAI 1M1B · 2026</span>
