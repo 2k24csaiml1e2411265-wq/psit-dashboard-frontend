@@ -221,20 +221,7 @@ function Loading({ seconds, onRetry }) {
       <p style={{ color: C.gray700, margin: "0 0 6px", fontWeight: 600, fontSize: 30 }}>
         🌿Connecting to campus sensors
       </p>
- 
-
-      <button
-        onClick={onRetry}
-        style={{
-          padding: "8px 20px", borderRadius: 7, border: `1px solid ${C.gray200}`,
-          background: "#fff", color: C.gray700, fontSize: 13, fontWeight: 500,
-          cursor: "pointer",
-        }}
-      >
-        Retry now
-      </button>
-
-      <p style={{ color: C.gray400, fontSize: 11, marginTop: 28, textAlign: "center" }}>
+      <p style={{ color: C.gray500, fontSize: 15, marginTop: 28, textAlign: "center" }}>
         PSIT Campus Dashboard · Powered by FastAPI + Supabase
       </p>
     </div>
