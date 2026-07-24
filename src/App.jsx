@@ -218,15 +218,10 @@ function Loading({ seconds, onRetry }) {
       }} />
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
 
-      <p style={{ color: C.gray700, margin: "0 0 6px", fontWeight: 600, fontSize: 15 }}>
-        Connecting to campus sensors
+      <p style={{ color: C.gray700, margin: "0 0 6px", fontWeight: 600, fontSize: 30 }}>
+        🌿Connecting to campus sensors
       </p>
-      <p style={{ color: C.gray400, margin: "0 0 20px", fontSize: 13, textAlign: "center", maxWidth: 320 }}>
-        {seconds > 0
-          ? <>The server is waking up. This takes up to 60 seconds on first load.<br />
-              <span style={{ color: C.green, fontWeight: 600 }}>Retrying in {seconds}s…</span></>
-          : "Retrying now…"}
-      </p>
+ 
 
       <button
         onClick={onRetry}
